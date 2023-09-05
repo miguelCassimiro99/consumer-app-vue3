@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useCustomerStore } from '../src/stores/customer'
+import { useCustomerStore } from '@/stores/customer'
 
 const customer = useCustomerStore()
 
@@ -7,7 +7,7 @@ const customer = useCustomerStore()
 
 <template>
   <div>
-    <h1 class="text-2xl border">Hello World teste</h1>
+    <h1 class="text-2xl border">Hello World</h1>
     <span>current customer: </span>
     <pre>{{ customer.name }}</pre>
 
