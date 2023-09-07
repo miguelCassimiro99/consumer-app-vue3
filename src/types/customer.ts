@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { IProduct } from './products'
 
 const cpfSchema = z.string().refine((cpf) => /^\d{11}$/.test(cpf), {
   message: 'O CPF deve conter exatamente 11 dígitos numéricos.',
@@ -13,6 +14,8 @@ export const Customer = z.object({
   cpf: cpfSchema,
   email: z.string().email().optional(),
   phone: phoneSchema,
+  active: z.boolean(),
+  customer_products: z.array(z.any()),
 })
 
 export interface ICustomer {
@@ -20,4 +23,6 @@ export interface ICustomer {
   cpf: string
   email?: string
   phone: string
+  active: boolean
+  customer_products: IProduct[]
 }

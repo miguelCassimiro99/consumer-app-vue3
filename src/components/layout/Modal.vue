@@ -1,0 +1,35 @@
+<script setup lang="ts">
+
+import { useModalStore } from '@/stores/modal';
+import { storeToRefs } from 'pinia';
+import {
+Dialog,
+DialogPanel,
+DialogTitle,
+DialogDescription
+} from '@headlessui/vue';
+
+const modalStore = useModalStore()
+const { isOpen } = storeToRefs(modalStore)
+
+
+</script>
+
+<template>
+  <div class="fixed inset-0 flex items-center justify-center z-50" v-if="isOpen">
+    <!-- Fundo escuro -->
+    <div class="fixed inset-0 bg-black opacity-50"></div>
+
+    <!-- Conteúdo do modal -->
+    <div class="bg-white p-4 rounded shadow-lg z-30">
+      <span>Teste</span>
+
+      <!-- Botão de fechar -->
+      <button @click="modalStore.toggleModal()" class="mt-4 p-2 text-sm font-medium text-gray-700 hover:text-gray-900">
+        Fechar Modal
+      </button>
+    </div>
+  </div>
+</template>
+<style scoped>
+</style>

@@ -1,0 +1,12 @@
+{
+  "customers": [
+    {
+      "name": "Miguel Cassimiro",
+      "cpf": "11111111111",
+      "phone": "12997751916",
+      "email": null,
+      "active:": true,
+      "customer_products": []
+    }
+  ]
+}
