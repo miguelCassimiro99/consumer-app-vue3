@@ -15,7 +15,8 @@ defineProps<{
 }>()
 
 const startEditCustomer = (customer: ICustomer) => {
-  setOnWorkingCustomer(customer)
+  const customerToEdit = customer
+  setOnWorkingCustomer(customerToEdit)
   toggleModal()
 }
 

@@ -6,7 +6,7 @@ import { useCustomerStore } from '@/stores/customer'
 import { storeToRefs } from 'pinia';
 import { useModalStore } from '@/stores/modal'
 
-const { addCustomer, updateCustomer } = useCustomerStore()
+const { addCustomer, updateCustomer, getCustomers } = useCustomerStore()
 const customerStore = useCustomerStore()
 const { onWorkingCustomer } = storeToRefs(customerStore)
 
@@ -19,6 +19,11 @@ const initalFormCustomer = {
   email: undefined,
   active: true,
   customer_products: []
+}
+
+async function cancelSubmit() {
+  toggleModal()
+  await getCustomers()
 }
 
 const validationError = ref<any>(null)
@@ -70,12 +75,20 @@ const submitForm = async () => {
         <label for="phone" class="block text-sm font-medium text-gray-700">Phone:</label>
         <input v-model="onWorkingCustomer.phone" type="text" id="phone" name="phone" class="w-full mt-1 px-4 py-2 border rounded-md">
       </div>
+      <div class="mb-4">
+        <label for="active" class="block text-sm font-medium text-gray-700">Active:</label>
+        <input type="checkbox" class="form-checkbox h-6 w-6 text-indigo-600 rounded-md" v-model="onWorkingCustomer.active"  id="active" name="active" />
+      </div>
 
       <div v-if="validationError">
         
       </div>
       <div class="mb-4">
         <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">{{ onWorkingCustomer.id ? "Atualizar " : "Criar" }}</button>
+      </div>
+
+      <div class="mb-4">
+        <button @click="cancelSubmit()" class="px-4 py-2 bg-red-500 text-white rounded-md">Cancelar</button>
       </div>
     </form>
   </div>
