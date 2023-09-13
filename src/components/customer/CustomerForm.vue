@@ -1,25 +1,16 @@
 <script setup lang="ts">
 import { ICustomer, CustomerSchema } from '@/types/customer';
 import { ref } from 'vue';
-import z, { custom } from 'zod'
 import { useCustomerStore } from '@/stores/customer'
 import { storeToRefs } from 'pinia';
 import { useModalStore } from '@/stores/modal'
+import { fromZodError } from 'zod-validation-error'
+
 
 const { addCustomer, updateCustomer, getCustomers } = useCustomerStore()
 const customerStore = useCustomerStore()
 const { onWorkingCustomer } = storeToRefs(customerStore)
-
 const { toggleModal } = useModalStore()
-
-const initalFormCustomer = {
-  name: undefined,
-  cpf: undefined,
-  phone: undefined,
-  email: undefined,
-  active: true,
-  customer_products: []
-}
 
 async function cancelSubmit() {
   toggleModal()
@@ -36,20 +27,17 @@ const startEditCustomer = async (customer: ICustomer) => {
 
 const submitForm = async () => {
   try {
-
     if(onWorkingCustomer.value.email === "") onWorkingCustomer.value.email = undefined
-
     const validatedCustomer = CustomerSchema.parse(onWorkingCustomer.value)
-
     if(validatedCustomer.id) return startEditCustomer(validatedCustomer)
 
     const response =  await addCustomer(validatedCustomer)
     if(response?.id) toggleModal()
 
   } catch (error: any) {
-    validationError.value = error
-    console.log("Error: ", error.issues);
-    
+    const newError = fromZodError(error);
+    validationError.value = newError.message.replace("Validation error: ", "")
+    console.log("Teste", validationError.value)
     return;
   }
 }
@@ -69,7 +57,7 @@ const submitForm = async () => {
       </div>
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-gray-700">E-mail:</label>
-        <input v-model="onWorkingCustomer.email" type="email" id="email" name="email" class="w-full mt-1 px-4 py-2 border rounded-md">
+        <input v-model="onWorkingCustomer.email" id="email" name="email" class="w-full mt-1 px-4 py-2 border rounded-md">
       </div>
       <div class="mb-4">
         <label for="phone" class="block text-sm font-medium text-gray-700">Phone:</label>
@@ -77,18 +65,22 @@ const submitForm = async () => {
       </div>
       <div class="mb-4">
         <label for="active" class="block text-sm font-medium text-gray-700">Active:</label>
-        <input type="checkbox" class="form-checkbox h-6 w-6 text-indigo-600 rounded-md" v-model="onWorkingCustomer.active"  id="active" name="active" />
+        <input type="checkbox" class="form-checkbox h-6 w-6 text-blue-600 rounded-md" v-model="onWorkingCustomer.active"  id="active" name="active" />
       </div>
 
-      <div v-if="validationError">
-        
+      <div class="h-5 my-5">
+        <div v-if="validationError">
+          <p class="text-red-500 font-semibold">{{ validationError }}</p>
+        </div>
       </div>
-      <div class="mb-4">
-        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">{{ onWorkingCustomer.id ? "Atualizar " : "Criar" }}</button>
-      </div>
-
-      <div class="mb-4">
-        <button @click="cancelSubmit()" class="px-4 py-2 bg-red-500 text-white rounded-md">Cancelar</button>
+      <div class="flex justify-start items-start gap-2">
+        <div class="">
+          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">{{ onWorkingCustomer.id ? "Atualizar " : "Criar" }}</button>
+        </div>
+  
+        <div class="">
+          <button @click="cancelSubmit()" class="px-4 py-2 bg-red-500 text-white rounded-md">Cancelar</button>
+        </div>
       </div>
     </form>
   </div>
