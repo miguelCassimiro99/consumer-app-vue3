@@ -1,16 +1,23 @@
 <script setup lang="ts" generic="T extends ICustomer">
 import { ICustomer } from '@/types/customer';
 import { Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell } from 'flowbite-vue'
+import { useCustomerStore } from '@/stores/customer'
+import { useModalStore } from '@/stores/modal'
+import { storeToRefs } from 'pinia';
+
+//const customerStore = useCustomerStore()
+
+const { setOnWorkingCustomer } = useCustomerStore()
+const { toggleModal } = useModalStore()
 
 defineProps<{
   customers: T[]
 }>()
 
-// const phoneComputed = computed((phone) => {
-//   if(!phone) return
-//   return phone.replace(/[^0-9]/g, '')
-//               .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
-// })
+const startEditCustomer = (customer: ICustomer) => {
+  setOnWorkingCustomer(customer)
+  toggleModal()
+}
 
 </script>
 
@@ -36,7 +43,7 @@ defineProps<{
         <table-cell class="border p-2">product 1, product 2...</table-cell>
         <table-cell class="border p-2">{{ customer.active ? "Yes" : "No" }}</table-cell>
         <table-cell class="border p-2">
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+          <button @click="startEditCustomer(customer)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
         </table-cell>
       </table-row>
     </table-body>

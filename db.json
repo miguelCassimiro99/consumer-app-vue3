@@ -1,11 +1,27 @@
 {
   "customers": [
     {
-      "name": "Miguel Cassimiro",
-      "cpf": "11111111111",
-      "phone": "12997751916",
-      "email": null,
-      "active:": true,
+      "id": "lmgt22yhttt6wrzxq3q",
+      "name": "customer 2",
+      "cpf": "13434343434",
+      "phone": "12997751513",
+      "active": true,
+      "customer_products": []
+    },
+    {
+      "id": "lmgtcjx35re6865v329",
+      "name": "customer 3",
+      "cpf": "13434343434",
+      "phone": "12997761515",
+      "active": true,
+      "customer_products": []
+    },
+    {
+      "id": "lmgtddc47a4cb71w3ag",
+      "name": "customer 3",
+      "cpf": "13434343434",
+      "phone": "12997761515",
+      "active": true,
       "customer_products": []
     }
   ]

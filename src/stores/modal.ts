@@ -6,7 +6,6 @@ export const useModalStore = defineStore('modal', {
   }),
   actions: {
     toggleModal() {
-      console.log('Modal', this.isOpen)
       this.isOpen = !this.isOpen
     },
   },

@@ -21,8 +21,8 @@ const { isOpen } = storeToRefs(modalStore)
     <div class="fixed inset-0 bg-black opacity-50"></div>
 
     <!-- Conteúdo do modal -->
-    <div class="bg-white p-4 rounded shadow-lg z-30">
-      <span>Teste</span>
+    <div class="bg-gray-200 p-4 rounded shadow-lg z-30">
+      <slot></slot>
 
       <!-- Botão de fechar -->
       <button @click="modalStore.toggleModal()" class="mt-4 p-2 text-sm font-medium text-gray-700 hover:text-gray-900">

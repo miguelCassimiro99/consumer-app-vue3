@@ -1,21 +1,19 @@
 <script setup lang="ts">
-import { useCustomerStore } from '@/stores/customer'
-import CustomerTable from "@/components/customer/CustomerTable.vue"
-import ActionBar from "@/components/layout/ActionBar.vue"
-import { onMounted, ref } from 'vue';
+import CustomerTable from "@/components/customer/CustomerTable.vue";
+import ActionBar from "@/components/layout/ActionBar.vue";
 import Modal from '@/components/layout/Modal.vue';
-import { useModalStore } from '@/stores/modal'
+import { useCustomerStore } from '@/stores/customer';
 import { storeToRefs } from 'pinia';
+import { onMounted } from 'vue';
+import CustomerForm from './components/customer/CustomerForm.vue';
 
-const { customers, getCustomers } = useCustomerStore()
+const { getCustomers } = useCustomerStore()
+const customerStore = useCustomerStore()
+const { customers } = storeToRefs(customerStore)
+
 onMounted( async () => {
   await getCustomers()
 })
-
-const modalStore = useModalStore()
-const { isOpen } = storeToRefs(modalStore)
-
-const isModalOpen = ref(true);
 
 </script>
 
@@ -27,7 +25,11 @@ const isModalOpen = ref(true);
       <CustomerTable :customers="customers" />
     </section>
 
-    <Modal />
+    <Modal>
+      <section>
+        <CustomerForm />
+      </section>
+    </Modal>
   </div>
     
 
