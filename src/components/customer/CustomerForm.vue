@@ -57,7 +57,7 @@ const submitForm = async () => {
 </script>
 <template>
   <div class="max-w-md mx-auto">
-    <h1 class="text-2xl font-semibold mb-4">Cadastro de Cliente</h1>
+    <h1 class="text-2xl font-semibold mb-4">{{ onWorkingCustomer.id ? "Update Customer" : "New Customer" }}</h1>
     <form @submit.prevent="submitForm">
       <div class="mb-4">
         <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
