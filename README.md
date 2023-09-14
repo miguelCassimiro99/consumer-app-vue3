@@ -1,6 +1,7 @@
 # Consumer App Vue
 
 Get Started
+\*The commands below are using Yarn but you can use NPM
 
 ```bash
    # Install all dependencies
@@ -15,6 +16,23 @@ Get Started
 ```bash
    git flow init
 ```
+
+### API
+
+To this project you'll also need the json-server lib
+To install it:
+
+```bash
+   yarn -g json-server
+```
+
+Then, you can simply run:
+
+```bash
+   json-server --watch db.json
+```
+
+The db.json was commited on this project but you can add another one and chenge the path for the file. In this case is on root.
 
 ### Ideia concept
 
