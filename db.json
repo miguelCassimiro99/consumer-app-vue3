@@ -1,0 +1,71 @@
+{
+  "customers": [
+    {
+      "id": "lmgt22yhttt6wrzxq3q",
+      "name": "customer 2",
+      "cpf": "13434343434",
+      "phone": "12997751513",
+      "active": true,
+      "customer_products": [
+        {
+          "id": "lmi5w3yltgswfuarqv",
+          "name": "teste 133",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "lmgtcjx35re6865v329",
+      "name": "customer 3",
+      "cpf": "13434343434",
+      "phone": "12997761515",
+      "active": true,
+      "customer_products": []
+    },
+    {
+      "id": "lmgtddc47a4cb71w3ag",
+      "name": "customer 3",
+      "cpf": "13434343434",
+      "phone": "12997761515",
+      "active": false,
+      "customer_products": []
+    },
+    {
+      "id": "lmhpwtws0jzt1acpbgot",
+      "name": "Miguel Cassimiro",
+      "cpf": "47596278809",
+      "email": "miguel.cassimiro99@gmail.com",
+      "phone": "12997751916",
+      "active": true,
+      "customer_products": [
+        {
+          "id": "lmi5w3yltgswfuarqv",
+          "name": "teste 133",
+          "active": true
+        },
+        {
+          "id": "lmipz6h921tnp0iclhd",
+          "name": "product 2",
+          "active": true
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "lmi5w3yltgswfuarqv",
+      "name": "teste 133",
+      "active": true
+    },
+    {
+      "id": "lmipz6h921tnp0iclhd",
+      "name": "product 2",
+      "active": true
+    },
+    {
+      "id": "lmjhwcrqq04dqmb7fen",
+      "name": "Product new",
+      "active": true
+    }
+  ]
+}
