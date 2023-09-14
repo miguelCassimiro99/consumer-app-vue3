@@ -27,3 +27,13 @@ I'm currently using the json-server because it's a little test but it can be mad
 
 - Supabase to auth and Customer List
 - Define the API URL by environment, so we can use the API of development and set the env for production mode
+
+### Customer
+
+The Customer Form contains all the data to create or edit a new customer using the same Form Component and sharing the data alongside the application (onWorkingCustomer)
+Then, I put a multiselect component to add new products to these customer. You can only add active products
+
+### Product
+
+The Product Form only contains the name and option to activate or not.
+To minimize the number of view (or screens) I decided to keep it more simple and on the customer's form you can also add the product.

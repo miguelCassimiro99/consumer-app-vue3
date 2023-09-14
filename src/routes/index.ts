@@ -5,8 +5,8 @@ import ProductsScreen from '@/views/ProductsScreen.vue'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'Customers',
-    component: CustomerScreen,
+    name: 'Home',
+    redirect: '/customers',
   },
   {
     path: '/customers',
