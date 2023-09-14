@@ -12,13 +12,23 @@ const startCreateCustomer = () => {
 <template>
   <div class="bg-gray-300 rounded-lg shadow-xl flex flex-col md:flex-row justify-between items-center gap-1 p-2">
     
-    <h1 class="text-lg font-bold uppercase text-slate-700 font-sans">Consumer App</h1>
+    <h1 class="text-lg font-bold uppercase text-slate-700 font-sans">Customer App</h1>
 
     <div class="flex gap-2">
-      <button @click="startCreateCustomer()" class="bg-green-800 rounded-md cursor-pointer shadow-sm px-2 text-gray-200 font-semibold hover:bg-green-700 hover:text-gray-100 py-1">Add Customer</button>
-      <button @click="toggleModal()" class="bg-blue-800 rounded-md cursor-pointer shadow-sm px-2 text-gray-200 font-semibold hover:bg-blue-600 hover:text-gray-100 py-1">Add Product</button>
+      <RouterLink to="/customers" class="px-3">
+        <span>Customers</span>
+      </RouterLink>
+
+      <RouterLink to="/products" class="px-3">
+        <span>Products</span>
+      </RouterLink>
     </div>
   </div>
 </template>
 <style scoped>
+.router-link-active {
+  background: rgb(51 65 85 / 1);
+  color: rgb(209 213 219 / 1);
+  border-radius: 5px;
+}
 </style>

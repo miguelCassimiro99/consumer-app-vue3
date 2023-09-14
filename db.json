@@ -6,7 +6,13 @@
       "cpf": "13434343434",
       "phone": "12997751513",
       "active": true,
-      "customer_products": []
+      "customer_products": [
+        {
+          "id": "lmi5w3yltgswfuarqv",
+          "name": "teste 133",
+          "active": true
+        }
+      ]
     },
     {
       "id": "lmgtcjx35re6865v329",
@@ -31,7 +37,18 @@
       "email": "miguel.cassimiro99@gmail.com",
       "phone": "12997751916",
       "active": true,
-      "customer_products": []
+      "customer_products": [
+        {
+          "id": "lmi5w3yltgswfuarqv",
+          "name": "teste 133",
+          "active": true
+        },
+        {
+          "id": "lmipz6h921tnp0iclhd",
+          "name": "product 2",
+          "active": true
+        }
+      ]
     }
   ],
   "products": [
@@ -43,6 +60,11 @@
     {
       "id": "lmipz6h921tnp0iclhd",
       "name": "product 2",
+      "active": true
+    },
+    {
+      "id": "lmjhwcrqq04dqmb7fen",
+      "name": "Product new",
       "active": true
     }
   ]

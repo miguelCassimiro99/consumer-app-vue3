@@ -38,7 +38,13 @@ const startEditCustomer = (customer: ICustomer) => {
         <table-cell class="border p-2">{{ customer.name }}</table-cell>
         <table-cell class="border p-2">{{ customer.phone }}</table-cell>
         <table-cell class="border p-2">{{ customer.email || "" }}</table-cell>
-        <table-cell class="border p-2">product 1, product 2...</table-cell>
+        <table-cell class="border p-2 flex justify-start gap-2">
+          <span
+            v-if="customer.customer_products.length > 0"
+            v-for="(product, index) in customer.customer_products"
+            :key="index"
+          >{{ product.name }}</span>
+        </table-cell>
         <table-cell class="border p-2">{{ customer.active ? "Yes" : "No" }}</table-cell>
         <table-cell class="border p-2">
           <button @click="startEditCustomer(customer)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>

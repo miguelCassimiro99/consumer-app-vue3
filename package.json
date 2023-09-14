@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.16",
+    "@vueform/multiselect": "^2.6.2",
     "axios": "^1.5.0",
     "flowbite": "^1.8.1",
     "flowbite-vue": "^0.0.17-next.2",

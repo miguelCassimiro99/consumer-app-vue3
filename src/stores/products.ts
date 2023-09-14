@@ -72,4 +72,9 @@ export const useProductsStore = defineStore('products', {
       this.onWorkingProduct = product
     },
   },
+  getters: {
+    getActiveProducts(state) {
+      return state.products.filter((p) => p.active)
+    },
+  },
 })
