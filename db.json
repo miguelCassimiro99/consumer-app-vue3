@@ -33,5 +33,17 @@
       "active": true,
       "customer_products": []
     }
+  ],
+  "products": [
+    {
+      "id": "lmi5w3yltgswfuarqv",
+      "name": "teste 133",
+      "active": true
+    },
+    {
+      "id": "lmipz6h921tnp0iclhd",
+      "name": "product 2",
+      "active": true
+    }
   ]
 }

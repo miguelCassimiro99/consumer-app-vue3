@@ -37,9 +37,7 @@ export const useCustomerStore = defineStore('customer', {
 
         const url = 'http://localhost:3000/customers'
         const response = await axios.post(url, payload)
-
         if (!response.data) throw new Error('Error adding customer')
-
         this.customers.push(response.data)
         return payload
       } catch (error) {

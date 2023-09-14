@@ -1,5 +1,5 @@
 export interface IProduct {
-  id: string
-  name: string
+  id?: string
+  name: string | undefined
   active: boolean
 }

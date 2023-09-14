@@ -20,7 +20,6 @@ async function cancelSubmit() {
 const validationError = ref<any>(null)
 
 const startEditCustomer = async (customer: ICustomer) => {
-  console.log("Customer: ", customer)
   const response = await updateCustomer(customer);
   if(response?.id) toggleModal()
 }
@@ -37,7 +36,7 @@ const submitForm = async () => {
   } catch (error: any) {
     const newError = fromZodError(error);
     validationError.value = newError.message.replace("Validation error: ", "")
-    console.log("Teste", validationError.value)
+    console.log("Error: ", error)
     return;
   }
 }
@@ -75,11 +74,11 @@ const submitForm = async () => {
       </div>
       <div class="flex justify-start items-start gap-2">
         <div class="">
-          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">{{ onWorkingCustomer.id ? "Atualizar " : "Criar" }}</button>
+          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">{{ onWorkingCustomer.id ? "Update " : "Create" }}</button>
         </div>
   
         <div class="">
-          <button @click="cancelSubmit()" class="px-4 py-2 bg-red-500 text-white rounded-md">Cancelar</button>
+          <button @click="cancelSubmit()" class="px-4 py-2 bg-red-500 text-white rounded-md">Cancel</button>
         </div>
       </div>
     </form>

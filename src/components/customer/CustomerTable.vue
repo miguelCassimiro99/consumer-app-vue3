@@ -3,9 +3,6 @@ import { ICustomer } from '@/types/customer';
 import { Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell } from 'flowbite-vue'
 import { useCustomerStore } from '@/stores/customer'
 import { useModalStore } from '@/stores/modal'
-import { storeToRefs } from 'pinia';
-
-//const customerStore = useCustomerStore()
 
 const { setOnWorkingCustomer } = useCustomerStore()
 const { toggleModal } = useModalStore()
